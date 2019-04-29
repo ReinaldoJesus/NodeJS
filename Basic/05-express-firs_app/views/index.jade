@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  li my text
+  input( type='text').class-name#id
+  -var condition = true
+  if condition
+    p its true
+  -var AnyArray = [1,2,3]
+  each value in AnyArray
+    p= value
