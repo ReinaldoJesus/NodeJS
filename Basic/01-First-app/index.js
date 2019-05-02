@@ -3,7 +3,7 @@ const fs = require('fs'); // Importa Fs para leer archivos
 
 function OnRequest(request, response){
     response.writeHead(200,{'Content-type':'text/html'});
-    fs.readFile('./index.hbs',null, function(error,data) {
+    fs.readFile('./index.html',null, function(error,data) {
         if (error) {
             response.writeHead(404);
             response.write('File not found');
@@ -14,4 +14,4 @@ function OnRequest(request, response){
         response.end();
     });
     }
-http.createServer(OnRequest).listen(8000)
+http.createServer(OnRequest).listen(80)
