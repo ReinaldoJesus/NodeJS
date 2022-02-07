@@ -1,0 +1,1 @@
+# informacion basica de esta carpeta contiene el producto final de la aplicacion 
