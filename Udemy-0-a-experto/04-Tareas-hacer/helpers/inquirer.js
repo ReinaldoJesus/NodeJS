@@ -36,27 +36,34 @@ const preguntas = [{
         }
     ]
 }]
+
+const stop = [{
+    type: 'input',
+    name: 'parar',
+    message: `Presione ${'ENTER'.yellow } Para Continuar`,
+    /*choices: [{
+            value: 'Enter', 
+            name:  `Presione ${'ENTER'.yellow } Para Continuar`,
+        }]*/
+}];
+
 const inquirerMenu = async()  => {
     console.clear();
     console.log('===================================='.green);
     console.log('Seleccione una opcion'.green);
     console.log('===================================='.green);
 
-    const { opt }= await inquirer.prompt( preguntas );
+    const  opt = await inquirer.prompt( preguntas );
+    //console.log(opt);
     return opt;
+
+
 } 
 
-const pausa = () => {
-    return new Promise (resolve => {    
-    const readline = require('readline').createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
-    readline.question(`\n Precione ${'ENTER'.yellow } para continuar \n `,(opt) =>{
-        readline.close();
-        resolve();
-    });
-});
+const pausa = async () => {
+    console.log(`\n`);
+    const  opt = await inquirer.prompt( stop );
+    return opt;
  }
 
 module.exports = {
