@@ -1,18 +1,25 @@
-const { Tarea } = require('./tarea')
+const  Tarea  = require('./tarea') // Cuando es una sola es asi
 
 
 class Tareas {
 
  _listado = {};
 
-    constructor(  ){
+ get listadoArr(){
+    const listado = [];
+    Object.keys( this._listado ).forEach( key => {
+    const tarea = this._listado[key];
+     listado.push( tarea )
+    });
+    return listado;
+ }
 
+    constructor() {
         this._listado = {};
-
     }
 
-   createTarea( desc = ''){
-    const tarea = new Tarea();
+   crearTarea( desc = '' ){
+    const tarea = new Tarea(desc);
     this._listado[tarea.id] = tarea;
    } 
 
